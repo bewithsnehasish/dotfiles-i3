@@ -44,11 +44,10 @@ disconnected_format = ""
 [[block]]
 block = "net"
 format = " ^icon_net_down$speed_down.eng(prefix:K) ^icon_net_up$speed_up.eng(prefix:K) "
-format_alt = " $icon {$signal_strength $ssid} "
+format_alt = " $icon {$signal_strength $ssid|Wired connection} "
 [block.theme_overrides]
 idle_bg = "#0B60B0"
 idle_fg = "#FBF9F1"
-
 
 [[block]]
 block = "sound"
@@ -61,16 +60,26 @@ idle_fg = "#FFEDD8"
 
 
 [[block]]
+block = "hueshift"
+hue_shifter = "redshift"
+step = 50
+click_temp = 4000
+[block.theme_overrides]
+idle_bg = "#FCD299"
+idle_fg = "#211C6A"
+[[block]]
 block = "backlight"
-device = "amdgpu_bl2"
-format = "$icon $brightness "
+missing_format = ""
+
+
 
 [[block]]
 block = "battery"
-format = " $icon $percentage"
+format = " $icon $percentage "
 interval=2
-full_format="$icon  100%"
-
+full_format="$icon 100%"
+device = "DisplayDevice"
+driver = "upower"
 
 [[block]]
 block = "time"
