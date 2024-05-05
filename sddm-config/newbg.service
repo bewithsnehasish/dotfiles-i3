@@ -1,0 +1,9 @@
+[Unit]
+Description=Set Random Background Image
+
+[Service]
+Type=oneshot
+ExecStart=/usr/share/sddm/themes/simple-sddm/Bg.sh
+
+[Install]
+WantedBy=multi-user.target
