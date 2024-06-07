@@ -3,7 +3,7 @@ theme = "space-villain"
 
 [icons]
 icons = "material-nf"
-
+#ttf-firacode-nerd (For icons over the lower menu)
 
 [[block]]
 block = "custom"
