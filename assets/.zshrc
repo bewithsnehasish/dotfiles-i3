@@ -3,9 +3,9 @@
 
 export ZSH="$HOME/.oh-my-zsh"
 
-ZSH_THEME="agnoster"
+ZSH_THEME="gnzh"
 
-plugins=( 
+plugins=(
     git
     archlinux
     zsh-autosuggestions
@@ -35,4 +35,3 @@ pokemon-colorscripts --no-title -s -r
 
 # To add support for TTYs this line can be optionally added.
 #source ~/.cache/wal/colors-tty.sh
-
