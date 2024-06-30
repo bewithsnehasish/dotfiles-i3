@@ -11,7 +11,8 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		lazy = false,
 		opts = {
-			auto_install = true,
+			ensure_installed = { "tsserver", "html", "lua_ls" }, -- Remove solargraph from automatic installation
+			automatic_installation = true,
 		},
 	},
 	{
@@ -25,15 +26,41 @@ return {
 			lspconfig.tsserver.setup({
 				capabilities = capabilities,
 			})
-			lspconfig.solargraph.setup({
-				capabilities = capabilities,
-			})
 			lspconfig.html.setup({
 				capabilities = capabilities,
 				filetypes = { "html", "ejs" }, -- Added support for EJS
 			})
 			lspconfig.lua_ls.setup({
 				capabilities = capabilities,
+				settings = {
+					Lua = {
+						runtime = {
+							version = "LuaJIT",
+							path = vim.split(package.path, ";"),
+						},
+						diagnostics = {
+							globals = { "vim" },
+						},
+						workspace = {
+							library = vim.api.nvim_get_runtime_file("", true),
+							checkThirdParty = false,
+						},
+						telemetry = {
+							enable = false,
+						},
+					},
+				},
+			})
+			lspconfig.solargraph.setup({
+				capabilities = capabilities,
+				cmd = { "solargraph", "stdio" }, -- Use system-installed solargraph
+				filetypes = { "ruby" },
+				root_dir = require("lspconfig/util").root_pattern("Gemfile", ".git"),
+				settings = {
+					solargraph = {
+						diagnostics = true,
+					},
+				},
 			})
 
 			-- Keybindings for LSP functions
