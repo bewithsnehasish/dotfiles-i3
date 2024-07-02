@@ -1,6 +1,7 @@
 return {
 	{
 		"nvim-lualine/lualine.nvim",
+		event = "VeryLazy",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		config = function()
 			require("nvim-web-devicons").setup() -- Ensure web-devicons is set up

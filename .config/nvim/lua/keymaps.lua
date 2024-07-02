@@ -10,3 +10,6 @@ vim.api.nvim_set_keymap("v", "<M-k>", ":m '<-2<CR>gv=gv", opts)
 vim.api.nvim_set_keymap("n", "<M-j>", ":m .+1<CR>==", opts)
 vim.api.nvim_set_keymap("i", "<M-j>", "<Esc>:m .+1<CR>==gi", opts)
 vim.api.nvim_set_keymap("v", "<M-j>", ":m '>+1<CR>gv=gv", opts)
+
+-- Set up key bindings
+vim.api.nvim_set_keymap("n", "<leader>d", "<cmd>LazyDevToggle<CR>", { noremap = true, silent = true })
