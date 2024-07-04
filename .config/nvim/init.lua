@@ -18,6 +18,3 @@ require("lazy").setup("plugins")
 
 --Load Keymaps plugins in the interface
 require("keymaps")
-
--- Set up key bindings (adjust to your preferred key)
-vim.api.nvim_set_keymap("n", "<leader>d", "<cmd>LazyDevToggle<CR>", { noremap = true, silent = true })
