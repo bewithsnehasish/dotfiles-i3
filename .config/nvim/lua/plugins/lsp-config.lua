@@ -11,7 +11,7 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		lazy = false,
 		opts = {
-			ensure_installed = { "tsserver", "html", "lua_ls" }, -- Remove solargraph from automatic installation
+			ensure_installed = { "tsserver", "html", "lua_ls" },
 			automatic_installation = true,
 		},
 	},

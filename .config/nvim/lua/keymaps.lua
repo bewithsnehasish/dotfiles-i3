@@ -13,3 +13,6 @@ vim.api.nvim_set_keymap("v", "<M-j>", ":m '>+1<CR>gv=gv", opts)
 
 -- Set up key bindings
 vim.api.nvim_set_keymap("n", "<leader>d", "<cmd>LazyDevToggle<CR>", { noremap = true, silent = true })
+
+-- Define the custom keybinding for deleting a word backward in insert mode
+vim.api.nvim_set_keymap("i", "<C-b>", "<C-o>db", { noremap = true, silent = true })
