@@ -1,0 +1,5 @@
+tumbler
+thunar 
+gvfs
+brightnessctl
+
