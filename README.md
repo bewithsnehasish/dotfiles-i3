@@ -1,6 +1,8 @@
-# My i3 Window Manager Configuration
+# :snowflake: Dot-Files :rocket:
+*These are my dotfiles, none of your dotfiles.*
 
-This repository contains my personal i3 window manager configuration. It's designed to provide a sleek, efficient, and customizable desktop environment.
+<p align="center"><img src="https://i.imgur.com/a0qDdtI.png" /></p>
+
 
 ## Table of Contents
 
