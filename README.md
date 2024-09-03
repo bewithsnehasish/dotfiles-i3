@@ -1,8 +1,8 @@
 # :snowflake: Dot-Files :rocket:
-*These are my dotfiles, none of your dotfiles.*
+
+_These are my dotfiles, none of your dotfiles._
 
 <p align="center"><img src="https://i.imgur.com/a0qDdtI.png" /></p>
-
 
 ## Table of Contents
 
@@ -20,17 +20,16 @@
 12. [Contributing](#contributing)
 13. [License](#license)
 
-
 ## Features
 
 - **Custom Keybindings**: Optimized for productivity and ease of use
 - **Workspace Management**: Pre-configured workspaces with specific application assignments
-- **Aesthetics**: 
+- **Aesthetics**:
   - Custom color scheme
   - Gap and border settings for a modern look
   - Random wallpaper selection
 - **Status Bar**: Customized i3bar with i3status-rs
-- **Application Launchers**: 
+- **Application Launchers**:
   - dmenu for quick program launching
   - Rofi for an enhanced application menu
 - **Multimedia Controls**: Keybindings for volume and media playback
@@ -38,7 +37,6 @@
 - **Brightness Control**: Keybindings for adjusting screen brightness
 - **Screenshot Utility**: Flameshot integration for powerful screenshot capabilities
 - **Color Temperature Adjustment**: Redshift integration for eye comfort
-
 
 ## Dependencies
 
@@ -65,6 +63,19 @@ Ensure you have the following installed:
 2. Install dependencies (method may vary based on your distribution)
 3. Log out and log back in, selecting i3 as your window manager
 
+## :v: Get Touchpad Gestures
+- **xorg.conf.d**:
+- Don't know about you but when i was the DE guy, i used to use the gestures of touchpad.
+- So i figure out how to enable some gestures for tilling-wm.
+
+### :rocket: Setup
+- Setup necessary files.
+    + Goto `/etc/X11/xorg.conf.d/`, create if you don't have these folders. 
+    + Then create `90-touchpad.conf` and paste the content from my repository's file.
+- Thanks to `Cody Craven` check his article here.
+- https://cravencode.com/post/essentials/enable-tap-to-click-in-i3wm/
+
+
 
 ## Keybindings
 
@@ -72,93 +83,92 @@ Note: `$mod` is set to the Windows key (Mod4) or whatever key you want to make i
 
 ### Basic Controls
 
-| Keybinding | Action |
-|------------|--------|
-| `$mod + Enter` | Open terminal (Kitty) |
-| `$mod + q` | Kill focused window |
-| `$mod + d` | Launch dmenu |
-| `Mod1 + space` | Launch Rofi |
-| `$mod + Shift + c` | Reload i3 configuration |
-| `$mod + Shift + r` | Restart i3 |
+| Keybinding         | Action                      |
+| ------------------ | --------------------------- |
+| `$mod + Enter`     | Open terminal (Kitty)       |
+| `$mod + q`         | Kill focused window         |
+| `$mod + d`         | Launch dmenu                |
+| `Mod1 + space`     | Launch Rofi                 |
+| `$mod + Shift + c` | Reload i3 configuration     |
+| `$mod + Shift + r` | Restart i3                  |
 | `$mod + Shift + e` | Exit i3 (with confirmation) |
-| `Ctrl + Shift + e` | Launch wlogout |
+| `Ctrl + Shift + e` | Launch wlogout              |
 
 ### Window Management
 
-| Keybinding | Action |
-|------------|--------|
-| `$mod + j` | Focus left |
-| `$mod + k` | Focus down |
-| `$mod + l` | Focus up |
-| `$mod + semicolon` | Focus right |
-| `$mod + Shift + j` | Move window left |
-| `$mod + Shift + k` | Move window down |
-| `$mod + Shift + l` | Move window up |
-| `$mod + Shift + semicolon` | Move window right |
-| `$mod + h` | Split horizontally |
-| `$mod + v` | Split vertically |
-| `$mod + f` | Toggle fullscreen |
-| `$mod + s` | Change container layout to stacked |
-| `$mod + w` | Change container layout to tabbed |
-| `$mod + e` | Change container layout to toggle split |
-| `$mod + Shift + space` | Toggle floating |
-| `$mod + a` | Focus parent container |
+| Keybinding                 | Action                                  |
+| -------------------------- | --------------------------------------- |
+| `$mod + j`                 | Focus left                              |
+| `$mod + k`                 | Focus down                              |
+| `$mod + l`                 | Focus up                                |
+| `$mod + semicolon`         | Focus right                             |
+| `$mod + Shift + j`         | Move window left                        |
+| `$mod + Shift + k`         | Move window down                        |
+| `$mod + Shift + l`         | Move window up                          |
+| `$mod + Shift + semicolon` | Move window right                       |
+| `$mod + h`                 | Split horizontally                      |
+| `$mod + v`                 | Split vertically                        |
+| `$mod + f`                 | Toggle fullscreen                       |
+| `$mod + s`                 | Change container layout to stacked      |
+| `$mod + w`                 | Change container layout to tabbed       |
+| `$mod + e`                 | Change container layout to toggle split |
+| `$mod + Shift + space`     | Toggle floating                         |
+| `$mod + a`                 | Focus parent container                  |
 
 ### Workspace Management
 
-| Keybinding | Action |
-|------------|--------|
-| `$mod + 1-9,0` | Switch to workspace 1-10 |
+| Keybinding             | Action                           |
+| ---------------------- | -------------------------------- |
+| `$mod + 1-9,0`         | Switch to workspace 1-10         |
 | `$mod + Shift + 1-9,0` | Move container to workspace 1-10 |
-| `$mod + Alt + Left` | Move to previous workspace |
-| `$mod + Alt + Right` | Move to next workspace |
-| `$mod + Alt + h` | Move to previous workspace |
-| `$mod + Alt + l` | Move to next workspace |
+| `$mod + Alt + Left`    | Move to previous workspace       |
+| `$mod + Alt + Right`   | Move to next workspace           |
+| `$mod + Alt + h`       | Move to previous workspace       |
+| `$mod + Alt + l`       | Move to next workspace           |
 
 ### Resizing
 
-| Keybinding | Action |
-|------------|--------|
-| `$mod + r` | Enter resize mode |
-| In resize mode: `j` | Shrink width |
-| In resize mode: `k` | Grow height |
-| In resize mode: `l` | Shrink height |
-| In resize mode: `semicolon` | Grow width |
-| In resize mode: `Left` | Shrink width |
-| In resize mode: `Down` | Grow height |
-| In resize mode: `Up` | Shrink height |
-| In resize mode: `Right` | Grow width |
-| In resize mode: `Enter/Escape/$mod + r` | Exit resize mode |
+| Keybinding                              | Action            |
+| --------------------------------------- | ----------------- |
+| `$mod + r`                              | Enter resize mode |
+| In resize mode: `j`                     | Shrink width      |
+| In resize mode: `k`                     | Grow height       |
+| In resize mode: `l`                     | Shrink height     |
+| In resize mode: `semicolon`             | Grow width        |
+| In resize mode: `Left`                  | Shrink width      |
+| In resize mode: `Down`                  | Grow height       |
+| In resize mode: `Up`                    | Shrink height     |
+| In resize mode: `Right`                 | Grow width        |
+| In resize mode: `Enter/Escape/$mod + r` | Exit resize mode  |
 
 ### Multimedia
 
 > 💡 **Note/Tip:** This mulemdia X86Audio and any other functions all these are handled using the inbuilt function buttons with the **Fn** function key of the computer.
 
-| Keybinding | Action |
-|------------|--------|
+| Keybinding             | Action          |
+| ---------------------- | --------------- |
 | `XF86AudioRaiseVolume` | Increase volume |
 | `XF86AudioLowerVolume` | Decrease volume |
-| `XF86AudioMute` | Toggle mute |
-| `XF86AudioPlay` | Play/Pause |
-| `XF86AudioNext` | Next track |
-| `XF86AudioPrev` | Previous track |
+| `XF86AudioMute`        | Toggle mute     |
+| `XF86AudioPlay`        | Play/Pause      |
+| `XF86AudioNext`        | Next track      |
+| `XF86AudioPrev`        | Previous track  |
 
 ### Screen
 
-| Keybinding | Action |
-|------------|--------|
-| `XF86MonBrightnessUp` | Increase brightness |
-| `XF86MonBrightnessDown` | Decrease brightness |
-| `$mod + x` | Lock screen |
-| `Print` | Take screenshot with Flameshot |
+| Keybinding              | Action                         |
+| ----------------------- | ------------------------------ |
+| `XF86MonBrightnessUp`   | Increase brightness            |
+| `XF86MonBrightnessDown` | Decrease brightness            |
+| `$mod + x`              | Lock screen                    |
+| `Print`                 | Take screenshot with Flameshot |
 
 ### Applications
 
-| Keybinding | Action |
-|------------|--------|
-| `$mod + b` | Launch Vivaldi browser |
+| Keybinding | Action                              |
+| ---------- | ----------------------------------- |
+| `$mod + b` | Launch Vivaldi browser              |
 | `Mod1 + b` | Launch Bluetooth settings with Rofi |
-
 
 ## Status Bar
 

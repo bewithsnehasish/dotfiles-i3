@@ -83,7 +83,7 @@ bindsym $mod+e layout toggle split
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-# bindsym $mod+space focus mode_toggle
+bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -142,11 +142,6 @@ bindsym $mod+MOD1+Left workspace prev
 bindsym $mod+MOD1+Right workspace next
 bindsym $mod+MOD1+h workspace prev
 bindsym $mod+MOD1+l workspace next
-
-assign [class="Brave"] $ws1
-assign [class="Spotify"] $ws6
-
-exec brave
 
 
 # resize window (you can also use the mouse for that)
@@ -236,7 +231,7 @@ bindsym $mod+x exec /home/$USER/.config/scripts/lock
 #  ╚═╝  ╚═╝ ╚═════╝ ╚═╝     ╚═╝
                               
 
-bindsym Mod1+space exec rofi -show run -icon-theme "Papirus" -show-icons
+bindsym Mod1+space exec rofi -show drun -show-icons
 bindsym Mod1+b exec --no-startup-id rofi-bluetooth
 #---------------------------------------------------------------
 #  ███████╗    ██╗  ██╗███████╗██╗   ██╗███████╗
