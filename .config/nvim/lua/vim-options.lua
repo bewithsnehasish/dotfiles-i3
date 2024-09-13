@@ -19,3 +19,22 @@ vim.keymap.set("n", "<c-l>", ":wincmd l<CR>")
 
 vim.keymap.set("n", "<leader>h", ":nohlsearch<CR>")
 vim.wo.number = true
+
+-- In your init.lua or a separate Lua file for plugin configuration
+vim.g.user_emmet_settings = {
+  javascript = {
+    extends = "html",
+  },
+  typescriptreact = {
+    extends = "html",
+  },
+  javascriptreact = {
+    extends = "html",
+  },
+  ejs = {
+    extends = "html, javascript",
+  },
+}
+
+-- Optionally, you can map <C-y>, to trigger Emmet expansion in insert mode
+vim.api.nvim_set_keymap('i', '<C-y>,', '<Plug>(emmet-expand-abbr)', {})

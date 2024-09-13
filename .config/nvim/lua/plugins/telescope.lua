@@ -1,17 +1,87 @@
 return {
-	"nvim-telescope/telescope.nvim",
-	tag = "0.1.6",
-	dependencies = { "nvim-lua/plenary.nvim" },
-	config = function()
-		require("telescope").setup()
+  {
+    "nvim-telescope/telescope.nvim",
+    dependencies = { { "nvim-telescope/telescope-fzf-native.nvim", build = "make" } },
+    keys = {
+      { "<leader>bb", "<cmd>Telescope buffers previewer=false<cr>", desc = "Find buffers" },
+      { "<leader>fb", "<cmd>Telescope git_branches<cr>", desc = "Checkout branch" },
+      { "<leader>fc", "<cmd>Telescope colorscheme<cr>", desc = "Colorscheme" },
+      { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find files" },
+      { "<leader>fp", "<cmd>lua require('telescope').extensions.projects.projects()<cr>", desc = "Projects" },
+      { "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "Find Text" },
+      { "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Help" },
+      { "<leader>fl", "<cmd>Telescope resume<cr>", desc = "Last Search" },
+      { "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Recent File" },
+    },
+    config = function()
+      local icons = require "plugins.user.icons"
+      local actions = require "telescope.actions"
 
-		-- set keymaps
-		local keymap = vim.keymap
+      require("telescope").setup {
+        defaults = {
+          prompt_prefix = icons.ui.Telescope .. " ",
+          selection_caret = icons.ui.Forward .. " ",
+          entry_prefix = "   ",
+          initial_mode = "insert",
+          selection_strategy = "reset",
+          path_display = { "smart" },
+          color_devicons = true,
+          vimgrep_arguments = {
+            "rg",
+            "--color=never",
+            "--no-heading",
+            "--with-filename",
+            "--line-number",
+            "--column",
+            "--smart-case",
+            "--hidden",
+            "--glob=!.git/",
+          },
 
-		keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Fuzzy find files in cwd" })
-		keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", { desc = "Fuzzy find recent files" })
-		keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>", { desc = "Find string in cwd" })
-		keymap.set("n", "<leader>fs", "<cmd>Telescope git_status<cr>", { desc = "Find string under cursor in cwd" })
-		keymap.set("n", "<leader>fc", "<cmd>Telescope git commits<cr>", { desc = "Find todos" })
-	end,
+          mappings = {
+            i = {
+              ["<C-n>"] = actions.cycle_history_next,
+              ["<C-p>"] = actions.cycle_history_prev,
+              ["<C-j>"] = actions.move_selection_next,
+              ["<C-k>"] = actions.move_selection_previous,
+            },
+            n = {
+              ["<esc>"] = actions.close,
+              ["j"] = actions.move_selection_next,
+              ["k"] = actions.move_selection_previous,
+              ["q"] = actions.close,
+            },
+          },
+        },
+        pickers = {
+          live_grep = { theme = "dropdown" },
+          grep_string = { theme = "dropdown" },
+          find_files = { theme = "dropdown", previewer = false },
+          buffers = {
+            theme = "dropdown",
+            previewer = false,
+            initial_mode = "normal",
+            mappings = {
+              i = { ["<C-d>"] = actions.delete_buffer },
+              n = { ["dd"] = actions.delete_buffer },
+            },
+          },
+          planets = { show_pluto = true, show_moon = true },
+          colorscheme = { enable_preview = true },
+          lsp_references = { theme = "dropdown", initial_mode = "normal" },
+          lsp_definitions = { theme = "dropdown", initial_mode = "normal" },
+          lsp_declarations = { theme = "dropdown", initial_mode = "normal" },
+          lsp_implementations = { theme = "dropdown", initial_mode = "normal" },
+        },
+        extensions = {
+          fzf = {
+            fuzzy = true,
+            override_generic_sorter = true,
+            override_file_sorter = true,
+            case_mode = "smart_case",
+          },
+        },
+      }
+    end,
+  },
 }
