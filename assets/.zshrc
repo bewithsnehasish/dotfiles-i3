@@ -35,3 +35,51 @@ pokemon-colorscripts --no-title -s -r
 
 # To add support for TTYs this line can be optionally added.
 #source ~/.cache/wal/colors-tty.sh
+export PATH="$PATH:/root/.cargo/bin"
+
+# Created by `pipx` on 2024-08-31 12:01:44
+export PATH="$PATH:/home/blackvortex/.local/bin"
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+
+
+# Aliases for the most common commands in the terminal
+alias la=tree
+alias cat=bat
+
+# Git
+alias gc="git commit -m"
+alias gca="git commit -a -m"
+alias gp="git push origin HEAD"
+alias gpu="git pull origin"
+alias gst="git status"
+alias glog="git log --graph --topo-order --pretty='%w(100,0,6)%C(yellow)%h%C(bold)%C(black)%d %C(cyan)%ar %C(green)%an%n%C(bold)%C(white)%s %N' --abbrev-commit"
+alias gdiff="git diff"
+alias gco="git checkout"
+alias gb='git branch'
+alias gba='git branch -a'
+alias gadd='git add'
+alias ga='git add -p'
+alias gcoall='git checkout -- .'
+alias gr='git remote'
+alias gre='git reset'
+
+# Docker
+alias dco="docker compose"
+alias dps="docker ps"
+alias dpa="docker ps -a"
+alias dl="docker ps -l -q"
+alias dx="docker exec -it"
+
+# Dirs
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ......="cd ../../../../.."
+
+# Run Frontend Vite Dev Server
+alias nrdev="npm run dev"
+
