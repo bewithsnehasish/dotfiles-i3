@@ -6,6 +6,12 @@ icons = "material-nf"
 #ttf-firacode-nerd (For icons over the lower menu)
 
 [[block]]
+block = "focused_window"
+[block.format]
+full = " $title.str(max_w:15) |"
+short = " $title.str(max_w:10) |"
+
+[[block]]
 block = "custom"
 #command = "echo 'Posture Check'"
 command = "echo '{\"icon\":\"weather_thunder\",\"state\":\"Good\", \"text\": \"POSTURE CHECK\"}'"
@@ -32,13 +38,6 @@ format_alt = " $icon $frequency{ $boost|} "
 [block.theme_overrides]
 idle_bg = "#74E291"
 idle_fg = "#211C6A"
-
-
-[[block]]
-block = "bluetooth"
-mac = "30:50:75:FA:CF:59"
-format = " $icon $name "
-disconnected_format = ""
 
 
 [[block]]
@@ -72,7 +71,6 @@ block = "backlight"
 missing_format = ""
 
 
-
 [[block]]
 block = "battery"
 format = " $icon $percentage "
@@ -88,5 +86,7 @@ format = " $timestamp.datetime(f:'%a %d/%m/%y %R') "
 [block.theme_overrides]
 idle_bg = "#11111b"
 idle_fg = "#a6e3a1"
+
+
 
 
