@@ -1,11 +1,11 @@
 set $mod Mod4
 
-font pango:FiraCode Nerd Font 11
+font pango:ZedMono NF Extd 13
 
-default_border pixel 3
-for_window [class=".*"] border pixel 3
-gaps outer 2
-gaps inner 5
+default_border pixel 4
+for_window [class="^.*"] border pixel 0
+
+gaps inner 7
 smart_borders on
 client.background $transparent
 
@@ -33,6 +33,14 @@ exec --no-startup-id nm-applet
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec --no-startup-id dmenu_run
+
+
+# autotiling in i3wm
+exec_always --no-startup-id i3-auto-tiling
+
+# automatic start Picom 
+exec_always --no-startup-id picom
+
 #---------------------------------------------------------------
 #  ██╗    ██╗██╗███╗   ██╗██████╗  ██████╗ ██╗    ██╗███████╗
 #  ██║    ██║██║████╗  ██║██╔══██╗██╔═══██╗██║    ██║██╔════╝
@@ -200,7 +208,7 @@ exec_always --no-startup-id chmod +x ~/.Scripts/mousedpi
 bar {
         i3bar_command i3bar -t
         status_command i3status-rs
-        font pango:FiraCode Nerd Font 11
+        font pango:ZedMono NF Extd 14
   colors {
     separator #666666
     background #000000
@@ -231,8 +239,10 @@ bindsym $mod+x exec /home/$USER/.config/scripts/lock
 #  ╚═╝  ╚═╝ ╚═════╝ ╚═╝     ╚═╝
                               
 
-bindsym Mod1+space exec rofi -show drun -show-icons
-bindsym Mod1+b exec --no-startup-id rofi-bluetooth
+# start rofi
+bindsym Mod1+space exec --no-startup-id ~/.config/rofi/bin/launcher
+bindsym Mod1+q exec --no-startup-id ~/.config/rofi/bin/powermenu
+
 #---------------------------------------------------------------
 #  ███████╗    ██╗  ██╗███████╗██╗   ██╗███████╗
 #  ██╔════╝    ██║ ██╔╝██╔════╝╚██╗ ██╔╝██╔════╝
@@ -280,12 +290,14 @@ exec_always --no-startup-id ~/.config/i3/random_wallpaper.sh
 #  ██║  ██║███████╗██████╔╝███████║██║  ██║██║██║        ██║   
 #  ╚═╝  ╚═╝╚══════╝╚═════╝ ╚══════╝╚═╝  ╚═╝╚═╝╚═╝        ╚═╝   
 
+# Set i3wm colors
 exec --no-startup-id /usr/lib/geoclue-2.0/demos/agent
-#exec --no-startup-id redshift-gtk
 client.focused #3b1261 #3b1261 #ffffff #662b9c
 client.focused_inactive #333333 #5f676a #ffffff #484e50
 client.unfocused #222222 #222222 #888888 #292d2e
-client.urgent #2f343a #900000 #ffffff #900000
+client.urgent            #ca9ee6    #1e1e2e #ca9ee6 #6c7086  #ca9ee6
+client.placeholder       #6c7086 #1e1e2e #cdd6f4  #6c7086  #6c7086
+client.background        #1e1e2e
 exec --no-startup-id redshift -O 5000
 
 
@@ -315,3 +327,4 @@ bindsym $mod+Return exec kitty
 # start the browser
 bindsym $mod+b exec vivaldi
                                                                                                       
+
