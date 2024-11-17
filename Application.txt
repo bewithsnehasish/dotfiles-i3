@@ -2,4 +2,8 @@ tumbler
 thunar 
 gvfs
 brightnessctl
-
+zoxide
+eza
+ranger 
+fzf
+yazi
