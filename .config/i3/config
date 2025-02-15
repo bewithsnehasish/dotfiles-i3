@@ -3,9 +3,9 @@ set $mod Mod4
 font pango:ZedMono NF Extd 13
 
 default_border pixel 4
-for_window [class="^.*"] border pixel 0
+for_window [class="^.*"] border pixel 3
 
-gaps inner 7
+gaps inner 10
 smart_borders on
 client.background $transparent
 
@@ -40,6 +40,16 @@ exec_always --no-startup-id i3-auto-tiling
 
 # automatic start Picom 
 exec_always --no-startup-id picom
+
+#Convert Caps to Ctrl
+exec_always setxkbmap -option ctrl:nocaps
+
+# Start libinput-gestures
+exec --no-startup-id libinput-gestures-setup start
+
+#Start bluetooth blueman-applet
+exec --no-startup-id blueman-applet
+
 
 #---------------------------------------------------------------
 #  ██╗    ██╗██╗███╗   ██╗██████╗  ██████╗ ██╗    ██╗███████╗
@@ -188,6 +198,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+# bindsym $mod+Shift+e exec i3-msg exit
 bindsym Ctrl+shift+e exec wlogout
 
 
@@ -274,11 +285,7 @@ bindsym Print exec flameshot gui
 #To keep simple single wallpaper 
 #exec_always --no-startup-id feh --bg-scale ~/.config/i3/1.png
 
-
-#Change wallpaper to a random one with Win + Shift + Right Arrow
-
 #To get random wallpaper everytime we refresh the config or system
-#bindsym $mod+Shift+Right exec --no-startup-id /path/to/random_wallpaper.sh
 exec_always --no-startup-id ~/.config/i3/random_wallpaper.sh
 
 
@@ -292,12 +299,19 @@ exec_always --no-startup-id ~/.config/i3/random_wallpaper.sh
 
 # Set i3wm colors
 exec --no-startup-id /usr/lib/geoclue-2.0/demos/agent
-client.focused #3b1261 #3b1261 #ffffff #662b9c
+# client.focused #3b1261 #3b1261 #ffffff #662b9c
+# client.focused_inactive #333333 #5f676a #ffffff #484e50
+# client.unfocused #222222 #222222 #888888 #292d2e
+# client.urgent            #ca9ee6    #1e1e2e #ca9ee6 #6c7086  #ca9ee6
+# client.placeholder       #6c7086 #1e1e2e #cdd6f4  #6c7086  #6c7086
+# client.background        #1e1e2e
+
+client.focused          #ffff00 #ffff00 #000000 #ffff00
 client.focused_inactive #333333 #5f676a #ffffff #484e50
-client.unfocused #222222 #222222 #888888 #292d2e
-client.urgent            #ca9ee6    #1e1e2e #ca9ee6 #6c7086  #ca9ee6
-client.placeholder       #6c7086 #1e1e2e #cdd6f4  #6c7086  #6c7086
-client.background        #1e1e2e
+client.unfocused        #222222 #222222 #888888 #292d2e
+client.urgent          #ca9ee6 #1e1e2e #ca9ee6 #6c7086 #ca9ee6
+client.placeholder     #6c7086 #1e1e2e #cdd6f4 #6c7086 #6c7086
+client.background      #1e1e2e
 exec --no-startup-id redshift -O 5000
 
 

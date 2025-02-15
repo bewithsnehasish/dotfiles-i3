@@ -86,13 +86,6 @@ alias cl='clear'
 alias la=tree
 alias cat=bat
 
-# Docker
-alias dco="docker compose"
-alias dps="docker ps"
-alias dpa="docker ps -a"
-alias dl="docker ps -l -q"
-alias dx="docker exec -it"
-
 
 # Dirs
 alias ..="cd .."
@@ -195,4 +188,7 @@ export PYENV_ROOT="$HOME/.pyenv"
 eval "$(pyenv init -)"
 
 export QT_QPA_PLATFORMTHEME="qt5ct"
+
+export PATH="$HOME/.local/bin:$PATH"
+export CAPACITOR_ANDROID_STUDIO_PATH="/usr/bin/android-studio"
 
