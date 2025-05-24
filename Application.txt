@@ -7,3 +7,6 @@ eza
 ranger 
 fzf
 yazi
+tmux
+fastfetch
+
