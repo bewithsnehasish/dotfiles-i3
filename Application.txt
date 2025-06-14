@@ -9,4 +9,19 @@ fzf
 yazi
 tmux
 fastfetch
+i3status-rust
+ttf-firacode-nerd
+playerctl
+pavucontrol
+pipewire
+pipewire-pulse
+wireplumber
+redshift
+upower
+flameshot
+feh
+ttf-nerd-fonts-symbols
+i3-auto-tiling 
+auto-cpufreq
+
 
