@@ -1,56 +1,38 @@
-
 set $mod Mod4
-
 font pango:ZedMono NF Extd 13
-
 default_border pixel 4
 for_window [class="^.*"] border pixel 3
-
 gaps inner 10
 smart_borders on
 client.background $transparent
-
 exec --no-startup-id dex --autostart --environment i3
-
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
-
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
-
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
-
 # move tiling windows via drag & drop by left-clicking into the title bar,
 # or left-clicking anywhere into the window while holding the floating modifier.
 tiling_drag modifier titlebar
-
 # kill focused window
 bindsym $mod+q kill
-
 exec --no-startup-id nm-applet
-
 # start dmenu (a program launcher)
 bindsym $mod+d exec --no-startup-id dmenu_run
 
-
 # autotiling in i3wm
 exec_always --no-startup-id i3-auto-tiling
-
 # automatic start Picom 
 exec_always --no-startup-id picom
-
 #Convert Caps to Ctrl
 exec_always setxkbmap -option ctrl:nocaps
-
 # Start libinput-gestures
 exec --no-startup-id libinput-gestures-setup start
-
 #Start bluetooth blueman-applet
 exec --no-startup-id blueman-applet
-
 
 #---------------------------------------------------------------
 #  ██╗    ██╗██╗███╗   ██╗██████╗  ██████╗ ██╗    ██╗███████╗
@@ -65,51 +47,39 @@ bindsym $mod+j focus left
 bindsym $mod+k focus down
 bindsym $mod+l focus up
 bindsym $mod+semicolon focus right
-
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
-
 # move focused window
 bindsym $mod+Shift+j move left
 bindsym $mod+Shift+k move down
 bindsym $mod+Shift+l move up
 bindsym $mod+Shift+semicolon move right
-
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
-
 # split in horizontal orientation
 bindsym $mod+h split h
-
 # split in vertical orientation
 bindsym $mod+v split v
-
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
-
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
-
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
-
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
-
 # focus the parent container
 bindsym $mod+a focus parent
-
 # focus the child container
 #bindsym $mod+d focus child
-
 #---------------------------------------------------------------
 #  ██╗    ██╗ ██████╗ ██████╗ ██╗  ██╗███████╗██████╗  █████╗  ██████╗███████╗
 #  ██║    ██║██╔═══██╗██╔══██╗██║ ██╔╝██╔════╝██╔══██╗██╔══██╗██╔════╝██╔════╝
@@ -118,7 +88,6 @@ bindsym $mod+a focus parent
 #  ╚███╔███╔╝╚██████╔╝██║  ██║██║  ██╗███████║██║     ██║  ██║╚██████╗███████╗
 #   ╚══╝╚══╝  ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚═╝     ╚═╝  ╚═╝ ╚═════╝╚══════╝
 #                                                                             
-
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1"
@@ -131,7 +100,6 @@ set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
-
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
 bindsym $mod+2 workspace number $ws2
@@ -143,7 +111,6 @@ bindsym $mod+7 workspace number $ws7
 bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
-
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
 bindsym $mod+Shift+2 move container to workspace number $ws2
@@ -155,33 +122,28 @@ bindsym $mod+Shift+7 move container to workspace number $ws7
 bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
-
 # move to next and prev workspace
 bindsym $mod+MOD1+Left workspace prev
 bindsym $mod+MOD1+Right workspace next
 bindsym $mod+MOD1+h workspace prev
 bindsym $mod+MOD1+l workspace next
 
-
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
-
+       bindsym j resize shrink width 10 px or 10 ppt
+       bindsym k resize grow height 10 px or 10 ppt
+       bindsym l resize shrink height 10 px or 10 ppt
+       bindsym semicolon resize grow width 10 px or 10 ppt
         # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
-
+       bindsym Left resize shrink width 10 px or 10 ppt
+       bindsym Down resize grow height 10 px or 10 ppt
+       bindsym Up resize shrink height 10 px or 10 ppt
+       bindsym Right resize grow width 10 px or 10 ppt
         # back to normal: Enter or Escape or $mod+r
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
+       bindsym Return mode "default"
+       bindsym Escape mode "default"
+       bindsym $mod+r mode "default"
 }
-
 bindsym $mod+r mode "resize"
 #---------------------------------------------------------------
 #   ██████╗ ██████╗ ███╗   ██╗███████╗██╗ ██████╗ 
@@ -192,7 +154,6 @@ bindsym $mod+r mode "resize"
 #   ╚═════╝ ╚═════╝ ╚═╝  ╚═══╝╚═╝     ╚═╝ ╚═════╝ 
 #                                                 
 
-
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -202,11 +163,8 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 # bindsym $mod+Shift+e exec i3-msg exit
 bindsym Ctrl+shift+e exec wlogout
 
-
 #MOUSE DPI
 exec_always --no-startup-id chmod +x ~/.Scripts/mousedpi
-
-
 
 #---------------------------------------------------------------
 #  ██╗██████╗       ██████╗  █████╗ ██████╗ 
@@ -216,20 +174,31 @@ exec_always --no-startup-id chmod +x ~/.Scripts/mousedpi
 #  ██║██████╔╝      ██████╔╝██║  ██║██║  ██║
 #  ╚═╝╚═════╝       ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
 #                                           
-
 bar {
-        i3bar_command i3bar -t
-        status_command i3status-rs
-        font pango:ZedMono NF Extd 14
-  colors {
-    separator #666666
-    background #000000
-    statusline #ffffff
-    focused_workspace #551a8b #551a8b #ffffff #ffffff
-    active_workspace #333333 #5f676a #ffffff #ffffff
-    inactive_workspace #000000 #000000 #888888 #888888
-    urgent_workspace #2f343a #900000 #ffffff #ffffff
-  }
+       i3bar_command i3bar -t
+       status_command i3status-rs
+        font pango:ZedMono NF Extd 14 
+       # Alternatively, you might want to specify a fallback icon font like:
+       # font pango:ZedMono NF Extd,Symbols Nerd Font Mono 14
+        colors {
+           # Base Colors - Generally Dark to fit a 'space-villain' theme
+           separator #444444   # A slightly darker separator for subtle divisions
+           background #000000   # Deep black background
+           statusline #DEDEDE   # Light grey/off-white for general text, slightly less harsh than pure white
+            # Workspace Colors - Cohesive with a dark, accented theme
+           # Focused Workspace: Highlight with the primary accent color (your existing deep purple)
+           #           BG             BG2 (border)     FG             FG2 (text on border)
+           focused_workspace #551a8b  #551a8b          #ffffff        #ffffff
+           
+           # Active Workspace (but not focused): Darker background, distinct from focused
+           active_workspace #333333   #333333          #eeeeee       #eeeeee
+           
+           # Inactive Workspace: Less prominent
+           inactive_workspace #000000  #000000          #888888       #888888
+           
+           # Urgent Workspace: Stand out with red, but use the system's background color
+           urgent_workspace #000000  #900000          #ffffff       #ffffff
+       }
 }
 #---------------------------------------------------------------
 #  ██╗      ██████╗  ██████╗██╗  ██╗
@@ -239,7 +208,6 @@ bar {
 #  ███████╗╚██████╔╝╚██████╗██║  ██╗
 #  ╚══════╝ ╚═════╝  ╚═════╝╚═╝  ╚═╝
 #                                   
-
 bindsym $mod+x exec /home/$USER/.config/scripts/lock
 #bindsym $mod+shift+x exec i3lock
 #---------------------------------------------------------------
@@ -249,12 +217,17 @@ bindsym $mod+x exec /home/$USER/.config/scripts/lock
 #  ██╔══██╗██║   ██║██╔══╝  ██║
 #  ██║  ██║╚██████╔╝██║     ██║
 #  ╚═╝  ╚═╝ ╚═════╝ ╚═╝     ╚═╝
-                              
-
+                             
 # start rofi
-bindsym Mod1+space exec --no-startup-id ~/.config/rofi/bin/launcher
-bindsym Mod1+q exec --no-startup-id ~/.config/rofi/bin/powermenu
-
+# Application Launcher
+bindsym Mod1+space exec --no-startup-id rofi -show drun
+# Quick Access Scripts
+bindsym Mod1+m exec --no-startup-id ~/.config/rofi/music/music
+bindsym Mod1+w exec --no-startup-id ~/.config/rofi/wifi/wifi
+bindsym Mod1+s exec --no-startup-id ~/.config/rofi/screenshot/screenshot
+bindsym Mod1+u exec --no-startup-id ~/.config/rofi/mount/mountusb
+bindsym Mod1+c exec --no-startup-id ~/.config/rofi/mount/cellmount
+bindsym Mod1+d exec --no-startup-id ~/.config/rofi/screen/screen
 #---------------------------------------------------------------
 #  ███████╗    ██╗  ██╗███████╗██╗   ██╗███████╗
 #  ██╔════╝    ██║ ██╔╝██╔════╝╚██╗ ██╔╝██╔════╝
@@ -264,15 +237,12 @@ bindsym Mod1+q exec --no-startup-id ~/.config/rofi/bin/powermenu
 #  ╚═╝         ╚═╝  ╚═╝╚══════╝   ╚═╝   ╚══════╝
 #                                               
 
-
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl prev
-
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
-
 bindsym Print exec flameshot gui
 #---------------------------------------------------------------
 #  ██╗    ██╗ █████╗ ██╗     ██╗     ██████╗  █████╗ ██████╗ ███████╗██████╗ 
@@ -282,13 +252,10 @@ bindsym Print exec flameshot gui
 #  ╚███╔███╔╝██║  ██║███████╗███████╗██║     ██║  ██║██║     ███████╗██║  ██║
 #   ╚══╝╚══╝ ╚═╝  ╚═╝╚══════╝╚══════╝╚═╝     ╚═╝  ╚═╝╚═╝     ╚══════╝╚═╝  ╚═╝
 
-
 #To keep simple single wallpaper 
 #exec_always --no-startup-id feh --bg-scale ~/.config/i3/1.png
-
 #To get random wallpaper everytime we refresh the config or system
 exec_always --no-startup-id ~/.config/i3/random_wallpaper.sh
-
 
 #---------------------------------------------------------------
 #  ██████╗ ███████╗██████╗ ███████╗██╗  ██╗██╗███████╗████████╗
@@ -297,7 +264,6 @@ exec_always --no-startup-id ~/.config/i3/random_wallpaper.sh
 #  ██╔══██╗██╔══╝  ██║  ██║╚════██║██╔══██║██║██╔══╝     ██║   
 #  ██║  ██║███████╗██████╔╝███████║██║  ██║██║██║        ██║   
 #  ╚═╝  ╚═╝╚══════╝╚═════╝ ╚══════╝╚═╝  ╚═╝╚═╝╚═╝        ╚═╝   
-
 # Set i3wm colors
 exec --no-startup-id /usr/lib/geoclue-2.0/demos/agent
 # client.focused #3b1261 #3b1261 #ffffff #662b9c
@@ -306,7 +272,6 @@ exec --no-startup-id /usr/lib/geoclue-2.0/demos/agent
 # client.urgent            #ca9ee6    #1e1e2e #ca9ee6 #6c7086  #ca9ee6
 # client.placeholder       #6c7086 #1e1e2e #cdd6f4  #6c7086  #6c7086
 # client.background        #1e1e2e
-
 client.focused          #ffff00 #ffff00 #000000 #ffff00
 client.focused_inactive #333333 #5f676a #ffffff #484e50
 client.unfocused        #222222 #222222 #888888 #292d2e
@@ -315,7 +280,6 @@ client.placeholder     #6c7086 #1e1e2e #cdd6f4 #6c7086 #6c7086
 client.background      #1e1e2e
 exec --no-startup-id redshift -O 5000
 
-
 #---------------------------------------------------------------
 #██████╗  █████╗ ████████╗████████╗███████╗██████╗ ██╗   ██╗
 #██╔══██╗██╔══██╗╚══██╔══╝╚══██╔══╝██╔════╝██╔══██╗╚██╗ ██╔╝
@@ -323,9 +287,8 @@ exec --no-startup-id redshift -O 5000
 #██╔══██╗██╔══██║   ██║      ██║   ██╔══╝  ██╔══██╗  ╚██╔╝  
 #██████╔╝██║  ██║   ██║      ██║   ███████╗██║  ██║   ██║   
 #╚═════╝ ╚═╝  ╚═╝   ╚═╝      ╚═╝   ╚══════╝╚═╝  ╚═╝   ╚═╝   
-                                                           
+                                                          
 #exec --no-startup-id ~/battery_warning.sh
-
 #---------------------------------------------------------------
 #   █████╗ ██████╗ ██████╗ ███████╗    ███████╗██╗  ██╗ ██████╗ ██████╗ ████████╗ ██████╗██╗   ██╗████████╗
 #  ██╔══██╗██╔══██╗██╔══██╗██╔════╝    ██╔════╝██║  ██║██╔═══██╗██╔══██╗╚══██╔══╝██╔════╝██║   ██║╚══██╔══╝
@@ -335,10 +298,16 @@ exec --no-startup-id redshift -O 5000
 #  ╚═╝  ╚═╝╚═╝     ╚═╝     ╚══════╝    ╚══════╝╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝   ╚═╝    ╚═════╝ ╚═════╝    ╚═╝   
 #    
 
-
 # start a terminal
-bindsym $mod+Return exec kitty
-
+bindsym $mod+Return exec alacritty
 # start the browser
 bindsym $mod+b exec vivaldi
-                                                                                                      
+                                                                                                     
+
+#Scrcpy 
+for_window [class="scrcpy"] floating enable
+for_window [class="scrcpy"] move to workspace current
+for_window [class="scrcpy"] sticky enable
+exec --no-startup-id xsettingsd &
+for_window [class="Codefri Browser"] fullscreen disable
+for_window [class="Codefri Browser"] floating enable
